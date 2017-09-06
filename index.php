@@ -11,6 +11,7 @@ ini_set('display_startup_errors', TRUE);
         <script src="three.min.js"></script>
         
         <!-- Dependencies -->
+        <script src="Item.js"></script>
         <script src="Container.js"></script>
         
         
@@ -35,15 +36,16 @@ ini_set('display_startup_errors', TRUE);
                                                      data.container[i].length,
                                                      data.container[i].width,
                                                      data.container[i].height,
-                                                    data.container[i].contentItems));
+                                                     data.container[i].contentItems));
+													 
                     }
                 }
             })
-            console.log(containers);
         </script>
         <script>
             /* Rendering */
-            scene.add(containers[1].box);
+			containers[0].renderItems();
+            scene.add(containers[0].box);
         </script>
         <!-- Keyboard Control -->
         <script>
@@ -61,13 +63,14 @@ ini_set('display_startup_errors', TRUE);
                         break;
                     case 221: camera.position.z += 1;
                         break;
+					
                 }
-                console.log("--------------");
+                /* console.log("--------------");
                 console.log("Rotation: ");
                 console.log("X = " + scene.rotation.x);
                 console.log("Y = " + scene.rotation.y);
                 
-                console.log("Camera Position Z: " + camera.position.z);
+                console.log("Camera Position Z: " + camera.position.z); */
             }
         </script>
     </body>
